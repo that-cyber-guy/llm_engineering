@@ -47,7 +47,7 @@ class Item:
         Clean up the provided text by removing unnecessary characters and whitespace
         Also remove words that are 7+ chars and contain numbers, as these are likely irrelevant product numbers
         """
-        stuff = re.sub(r'[:\[\]"{}【】\s]+', ' ', stuff).strip()
+        stuff = re.sub(r'[:"{}【】\s]+', ' ', stuff).strip()
         stuff = stuff.replace(" ,", ",").replace(",,,",",").replace(",,",",")
         words = stuff.split(' ')
         select = [word for word in words if len(word)<7 or not any(char.isdigit() for char in word)]
